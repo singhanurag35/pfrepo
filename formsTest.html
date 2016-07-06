@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+  <script type="text/javascript" src="js/imgUpload.js"></script>
+  <!-- Custom CSS-->
+  <link rel="stylesheet" type="text/css" href="css/forms.css">
+
+  <!--Custom Js-->
+
+</head>
+<body>
+
+<!--[if lte IE 9]>
+    <style>
+    .progress-tabs {
+    display: table;
+    width: 100%;
+    }
+    [data-progress-tab] {
+    display: table-cell;
+    }
+</style>
+    <![endif]-->
+<section class="container">
+  <ul role="tab-list" class="progress-tabs" id="progress-tabs">
+							<li role="tab" id="tab1a-title" aria-controls="tab1a-panel" aria-label="Step one: Plan" aria-selected="true" data-progress-tab="active" tabindex="0"><span>1</span><br /><p>Basic info</p></li>
+							<li role="tab" id="tab2a-title" aria-controls="tab2a-panel" aria-label="Step two: Design and Develop" aria-selected="false" data-progress-tab tabindex="0"><span>2</span><br /><p>Education</p></li>
+							<li role="tab" id="tab3a-title" aria-controls="tab3a-panel" aria-label="Step three: Test" aria-selected="false" data-progress-tab tabindex="0"><span>3</span><br /><p>Test</p></li>
+							<li role="tab" id="tab4a-title" aria-controls="tab4a-panel" aria-label="Step four: Implement" aria-selected="false" data-progress-tab tabindex="0"><span>4</span><br /><p>Implement</p></li>
+							<li role="tab" id="tab5a-title" aria-controls="tab5a-panel" aria-label="Step five: Implement" aria-selected="false" data-progress-tab tabindex="0"><span>5</span><br /><p>Implement</p></li>
+							<li role="tab" id="tab6a-title" aria-controls="tab6a-panel" aria-label="Step five: Implement" aria-selected="false" data-progress-tab tabindex="0"><span>6</span><br /><p>Implement</p></li>
+						</ul>
+						<form action="" method="POST">
+						<div role="tabpanel" id="tab1a-panel" aria-hidden="false" data-progress-panel="active" style="align:center">
+							<hr />
+							<h3>Basic Info</h3>
+						<div class="row">
+						<div class="col-lg-4" style="align:left;margin-top:0%">
+								<script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+								<div class="file-upload">
+								  <button class="file-upload-btn" type="button" onclick="$('.file-upload-input').trigger( 'click' )">Add Image</button>
+
+								  <div class="image-upload-wrap">
+								    <input class="file-upload-input" name="profilePic" type='file' onchange="readURL(this);" accept="image/*" />
+								    <div class="drag-text">
+								      <h3>+</h3>
+								    </div>
+								  </div>
+								  <div class="file-upload-content">
+								    <img class="file-upload-image" src="#" alt="your image" />
+								    <div class="image-title-wrap">
+								      <button type="button" onclick="removeUpload()" class="remove-image">Remove <span class="image-title">Uploaded Image</span></button>
+								    </div>
+								  </div>
+								</div>
+							</div>
+							<div class="col-lg-8" style="align:left;margin-top:5%">
+								<p><input class="detailEntry" name="name" id="name" type="text" style="margin:0% 20%" placeholder="Name" required><span class="glyphicon glyphicon-user"></span></p>
+								<p><input class="detailEntry" name="email" id="email" type="email" style="margin:0% 20%" placeholder="Email" required><span class="glyphicon glyphicon-envelope"></span></p>
+								<p><input class="detailEntry" name="phone" id="phone" type="text" style="margin:0% 20%" placeholder="Phone"><span class="glyphicon glyphicon-earphone"></span></p>
+								<p><input class="detailEntry" name="dob" type="text" id="datepicker" style="margin:0% 20%" placeholder="Date Of Birth" /><span class="glyphicon glyphicon-calendar"></span>	                   
+						        </p>
+								 <script type="text/javascript">
+						              $(function() {
+									    $( "#datepicker" ).datepicker();
+									  });
+	        					</script>
+	        					<p><input type="submit" id="submit"/>	                   
+						        </p>
+        					</div>
+						</div>
+						</div>
+						<div role="tabpanel" id="tab2a-panel" aria-hidden="false" data-progress-panel="active">
+							<hr />
+							<h3>Education</h3>
+							<p>
+									  
+									  <table id="data" class="data-table data-table-horizontal data-table-highlight">
+									    <tbody>
+									      <tr>
+									        <td><input class="detailEntry" type="text" placeholder="Year" required /></td>
+									        <td><input class="detailEntry" type="text" placeholder="Degree" required/></td>
+									        <td><input class="detailEntry" type="text" placeholder="Institution" required/></td>
+									        <td><input class="detailEntry" type="text" placeholder="Aggregate"/></td>
+									        <td> <span class="glyphicon glyphicon-envelope"></span></td>
+									      </tr>
+									     
+									    
+									  </table>
+									  <div class="pull-right">
+									    <input type="button" value="Add" class="top-buffer" onclick="addRow('data')" />
+									  </div>
+								
+
+						  </p>
+						</div>
+						<div role="tabpanel" id="tab3a-panel" aria-hidden="false" data-progress-panel="active">
+							<hr />
+							<h3>Step 3: Test</h3>
+							<p>We build your Web pages and/or applications in draft format on the staging server for your review and then make requested revisions.</p>
+						</div>
+						<div role="tabpanel" id="tab4a-panel" aria-hidden="false" data-progress-panel="active">
+							<hr />
+							<h3>Step 4: Implement</h3>
+							<p>Upon your final approval, WSDM take the draft staging version of your project and publishes it live and continues to maintain the project on the Web with updates you submit.</p>
+						</div>
+						<div role="tabpanel" id="tab5a-panel" aria-hidden="false" data-progress-panel="active">
+							<hr />
+							<h3>Step 4: Implement</h3>
+							<p>Upon your final approval, WSDM take the draft staging version of your project and publishes it live and continues to maintain the project on the Web with updates you submit.</p>
+						</div>
+						<div role="tabpanel" id="tab6a-panel" aria-hidden="false" data-progress-panel="active">
+							<hr />
+							<h3>Step 4: Implement</h3>
+							<p>Upon your final approval, WSDM take the draft staging version of your project and publishes it live and continues to maintain the project on the Web with updates you submit.</p>
+						</div>
+						</form>
+</section>
+
+<script type="text/javascript" src="js/forms.js"></script>
+
+</body>
+</html>
