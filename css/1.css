@@ -147,7 +147,7 @@ h1 {
   background: #DDDDDD;
   border-bottom: 1px solid #fff;
   position: absolute;
-  bottom: 10px;
+  bottom: -4px;
   left: 10%;
   z-index: 1;
 }
@@ -155,9 +155,9 @@ h1 {
   width: 0%;
   border: 0;
   height: 5px;
-  background: #ea463d;
+  background: #34495E;
   position: absolute;
-  bottom: 12px;
+  bottom: -4px;
   left: 10%;
   z-index: 3;
 }
@@ -182,7 +182,7 @@ h1 {
   height: 12px;
   border-radius: 20px;
   border: 2px solid transparent;
-  background: #ea463d;
+  background: #34495E;
   bottom: 14px;
   left: 50%;
   margin-left: -6px;
@@ -204,7 +204,7 @@ h1 {
   z-index: 2;
 }
 .progress_bar div.step.current {
-  color: #222;
+  color: #34495E;
 }
 .progress_bar div.step.current:before {
   display: block;

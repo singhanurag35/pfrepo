@@ -44,7 +44,7 @@ $_SESSION['csrf']=$tokenVal;
       <input type="hidden" class="form-control1 textfield" name="csrfmiddlewaretoken" id="csrfToken" value="<?php echo $_SESSION['csrf'];?>"><br>
   <div align="center">
     <button type="submit" id="register" class="form-control btn btn-primary">Submit</button>
-    <button type="submit" id="login" class="form-control btn btn-danger"><a href="login.html">Login</a></button>
+    <button type="submit" id="login" class="form-control btn btn-danger"><a href="login.php">Login</a></button>
   </div>  
   </form>
 </div>
@@ -70,7 +70,7 @@ e.preventDefault();
       if(responseData.message=="User Registered")
       {
       console.log(responseData);
-      window.location.href = "login.php";
+      //window.location.href = "login.php";
       }
       else
       {
