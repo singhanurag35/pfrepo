@@ -19,6 +19,18 @@
   
 </head>
 <body>
+<script >
+$( document ).ready(function()
+{
+        $.get(
+          "http://127.0.0.1:8000/api/accounts/", 
+          function(data, textStatus)
+        {
+                console.log(data);
+                document.getElementById("csrfToken").value=data.csrf;
+        });
+});
+</script>
 
 <div class="container">
 
@@ -27,11 +39,15 @@
   <form role="form">
     
       <input type="text" class="form-control1 textfield" name="username" id="user" placeholder="Enter username"><br>
-      <input type="email" class="form-control1 textfield" name="email" id="email" placeholder="Enter email"><br>     
+      <input type="email" class="form-control1 textfield" name="email" id="email" placeholder="Enter email"><br>
+    
+   
+     
       <input type="password" class="form-control1 textfield" name="password" id="pwd" placeholder="Enter password"><br>
+      <input type="hidden" class="form-control1 textfield" name="csrfmiddlewaretoken" id="csrfToken"><br>
   <div align="center">
     <button type="submit" id="register" class="form-control btn btn-primary">Submit</button>
-    <button type="submit" id="login" class="form-control btn btn-danger"><a href="login.html">Login</a></button>
+    <button type="submit" id="login" class="form-control btn btn-danger"><a href="login.php">Login</a></button>
   </div>  
   </form>
 </div>
@@ -39,26 +55,37 @@
 
 </div>
 <script>
-  $('#register').on("click",function() {
+  $('#register').on("click",function(e) {
     var userID=document.getElementById("user").value;
     var emailID=document.getElementById("email").value;
     var password=document.getElementById("pwd").value;
-    //var csrf=document.getElementById("csrfToken").value;
+    var csrf=document.getElementById("csrfToken").value;
 //console.log(userID+" "+csrf);
 //alert("CSRF: "+csrf);
-var dataInp={username: userID, email: emailID, password: password};
-console.log(dataInp);
+var dataInp={username: userID, email: emailID, password: password, csrfmiddlewaretoken: csrf};
+//console.log(dataInp);
+e.preventDefault();
     $.post(
       "http://127.0.0.1:8000/api/accounts/",
       dataInp,
-      function(data){
-        
-            console.log(data);
-
+      function(responseData,status){
+      console.log("success:");
+      if(responseData.message=="User Registered")
+      {
+      console.log(responseData);
+      window.location.href = "login.php";
       }
+      else
+      {
+        console.log("User not registered");
+      }
+    }
 
       );
   });
+
+
+
 </script>
 
 </body>
