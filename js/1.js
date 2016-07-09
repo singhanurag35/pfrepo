@@ -176,3 +176,8 @@ $(document).ready(function() {
     "value": "Lung"
   });
 });
+
+/*Tags*/
+
+
+

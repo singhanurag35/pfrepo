@@ -96,7 +96,6 @@ $( document ).ready(function()
   </div>
   
   <div class="col-sm-6">
-  <form enctype="multipart/form-data">
   <script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
     <div class="file-upload">
       <button class="file-upload-btn" type="button" onclick="$('.file-upload-input').trigger( 'click' )">Add Image</button>
@@ -114,10 +113,11 @@ $( document ).ready(function()
         </div>
       </div>
     </div>
-    </form>
+
+    <div>
     <a onclick="step_process(1, 2)" class="form-control btn btn-default" id="skipbasic">Skip</a>
     <a onclick="" class="form-control btn btn-default" id="basicInfo">Next</a>
-
+    </div>
     <script>
 
         $('#basicInfo').on("click",function(e) {
@@ -255,7 +255,7 @@ $.ajax({
                                       csrf=data.csrf;
                               });*/
                       //var yearOfEducation=document.getElementById("yearOfEducation").value;
-                       var yearOfEducation = new Array();
+                       var yearOfEducation =new Array();
                       $('input[name^="yearOfEducation"]').each(function() {
                           yearOfEducation.push($(this).val());
                       });
@@ -271,10 +271,11 @@ $.ajax({
                       $('input[name^="aggregateOfEducation"]').each(function() {
                           aggregateOfEducation.push($(this).val());
                       });
-                       console.log(csrf);
+                       //console.log(csrf);
+                       console.log(JSON.stringify(yearOfEducation));
                        //console.log(degreeOfEducation);
-                       var dataEducation={year: yearOfEducation, degree: degreeOfEducation, institution: institutionOfEducation, agreegate: aggregateOfEducation, csrfmiddlewaretoken: csrf, user: user}
-                        console.log(dataEducation);
+                       var dataEducation={year: JSON.stringify(yearOfEducation), degree: JSON.stringify(degreeOfEducation), institution: JSON.stringify(institutionOfEducation), agreegate: JSON.stringify(aggregateOfEducation), csrfmiddlewaretoken: csrf, user: user}
+                        //console.log(dataEducation);
                           e.preventDefault();
                                 $.post(
                                              "http://127.0.0.1:8000/education/",
@@ -283,7 +284,11 @@ $.ajax({
                                     console.log(responseData);
                                     //console.log(responseData.)
                               //if(responseData.)
-                                     step_process(3,4);
+                                  if(responseData.message=="Data Saved")
+                                  {
+                                    step_process(2,3);
+                                  }
+                                     
                                     }
                             );
 
@@ -291,30 +296,171 @@ $.ajax({
                 
                    });
 
-
-
               </script>
-
-
-
      </div>
     </div>
   </div>
+
+
+
+
   <div class="block" id="block3">
-    <div class="wrap">
-      <h2>Block 3</h2>
-      <p>Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur. Nulla vitae elit libero, a pharetra augue. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+    <div class="wrap" style="width:45%">
+      <h2>Areas of Interest</h2>
+     <div class="row">
+                <a onclick="reply_click(this.id)" class="form-control btn btn-default" style="margin-top:1%;margin-right: 1%;" id="Technology">Technology</a>
+                <a onclick="reply_click(this.id)" class="form-control btn btn-default" style="margin-top:1%;margin-right: 1%;" id="Politics">Politics</a> 
+                <a onclick="reply_click(this.id)" class="form-control btn btn-default" style="margin-top:1%;margin-right: 1%;" id="Economics">Economics</a>
+                <a onclick="reply_click(this.id)" class="form-control btn btn-default" style="margin-top:1%;margin-right: 1%;" id="Marketing">Marketing</a>
+                <a onclick="reply_click(this.id)" class="form-control btn btn-default" style="margin-top:1%;margin-right: 1%;" id="Gaming">Gaming</a>
+                <a onclick="reply_click(this.id)" class="form-control btn btn-default" style="margin-top:1%;margin-right: 1%;" id="Education">Education</a>
+                <a onclick="reply_click(this.id)" class="form-control btn btn-default" style="margin-top:1%;margin-right: 1%;" id="Design">Design</a>
+                <a onclick="reply_click(this.id)" class="form-control btn btn-default" style="margin-top:1%;margin-right: 1%;" id="Academics">Academics</a>
+               <!-- <a onclick="step_process(2, 3)" class="form-control btn btn-default" style="margin-top:1%;margin-right: 1%;" id="Entrepreneurship">Entrepreneurship</a>-->
+                <a onclick="reply_click(this.id)" class="form-control btn btn-default" style="margin-top:1%;margin-right: 1%;" id="Finance">Finance</a>
+                <a onclick="reply_click(this.id)" class="form-control btn btn-default" style="margin-top:1%;margin-right: 1%;" id="Poetry">Poetry</a>
+                <a onclick="reply_click(this.id)" class="form-control btn btn-default" style="margin-top:1%;margin-right: 1%;" id="Share market">Shares</a>
+                <a onclick="reply_click(this.id)" class="form-control btn btn-default" style="margin-top:1%;margin-right: 1%;" id="Android">Android</a>
+                <a onclick="reply_click(this.id)" class="form-control btn btn-default" style="margin-top:1%;margin-right: 1%;" id="Ios">Ios</a>
+                <a onclick="reply_click(this.id)" class="form-control btn btn-default" style="margin-top:1%;margin-right: 1%;" id="Windows">Windows</a> 
+
+
+      </div>
+      <br>
+      <br>
+      <div class="row">
+                <a class="glyphicon glyphicon-plus-sign" style="font-size:24px; top:13px; color:#607D8B; align:right" id="addAreasOfInterest"></a>
+                <a onclick="step_process(3, 4)" class="form-control btn btn-default" id="skipAreasOfInterest">Skip</a>
+                <a onclick="" class="form-control btn btn-default" id="submitAreasOfInterest">Next</a>
+      </div>
       <br />
-      <a onclick="step_process(3, 2, 'desc')" class="butt">Prev</a><a onclick="step_process(3, 4)" class="butt">Next</a>
     </div>
+    <script>
+  var interestResponse = new Array()
+      function reply_click(clicked_id)
+      {
+
+         var clicked_id=clicked_id;
+          console.log(clicked_id);
+          $("#"+clicked_id).css("background","#f2f2f2");
+          interestResponse.push(clicked_id);
+      }
+      
+      //interestResponse.push("Hello");
+      //interestResponse.push("Hi");
+      //console.log(interestResponse+" Hi");
+      $("#submitAreasOfInterest").click(function(e){
+          e.preventDefault();
+                                 var csrf=sessionStorage.getItem('csrf');
+                                 var user=sessionStorage.getItem('username');
+                                 var dataInterest= {intrest: JSON.stringify(interestResponse), csrfmiddlewaretoken: csrf, user: user};
+                                 console.log(dataInterest);
+                                $.post(
+                                             "http://127.0.0.1:8000/intrest/",
+                                             dataInterest,
+                                             function(responseData,status){
+                                              console.log(responseData);
+                                              //console.log(responseData.)
+                                        //if(responseData.)
+                                            if(responseData.message=="Data Saved")
+                                            {
+                                              step_process(3,4);
+                                            }
+                                     
+                                            }
+                                      );
+                                      //console.log(interestResponse);
+      });
+
+    </script>
+
   </div>
   <div class="block" id="block4">
-    <div class="wrap">
-      <h2>Block 4</h2>
-      <p>Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur. Nulla vitae elit libero, a pharetra augue. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+      <div class="wrap" style="width:45%">
+      <h2>Skills</h2>
+     <div class="row">
+                <h3>Technical</h3>
+                <a onclick="reply_clickSkills(this.id)" class="form-control btn btn-default" style="margin-top:1%;margin-right: 1%;" id="Android" value="Technical">Android</a>
+                <a onclick="reply_clickSkills(this.id)" class="form-control btn btn-default" style="margin-top:1%;margin-right: 1%;" id="Java" value="Technical">Java</a> 
+                <a onclick="reply_clickSkills(this.id)" class="form-control btn btn-default" style="margin-top:1%;margin-right: 1%;" id="AI" value="Technical">AI</a>
+                <a onclick="reply_clickSkills(this.id)" class="form-control btn btn-default" style="margin-top:1%;margin-right: 1%;" id="Python" value="Technical">Python</a>
+                <a onclick="reply_clickSkills(this.id)" class="form-control btn btn-default" style="margin-top:1%;margin-right: 1%;" id="Matlab" value="Technical">Matlab</a>
+                <a onclick="reply_clickSkills(this.id)" class="form-control btn btn-default" style="margin-top:1%;margin-right: 1%;" id="C++" value="Technical">C++</a>
+                <a onclick="reply_clickSkills(this.id)" class="form-control btn btn-default" style="margin-top:1%;margin-right: 1%;" id="Robotics" value="Technical">Robotics</a>
+                <a onclick="reply_clickSkills(this.id)" class="form-control btn btn-default" style="margin-top:1%;margin-right: 1%;" id="PHP" value="Technical">PHP</a>
+               <!-- <a onclick="step_process(2, 3)" class="form-control btn btn-default" style="margin-top:1%;margin-right: 1%;" id="Entrepreneurship">Entrepreneurship</a>-->
+               <br>
+                <h3>Soft</h3>
+                <a onclick="reply_clickSkills(this.id)" class="form-control btn btn-default" style="margin-top:1%;margin-right: 1%;" id="Leadership" value="Soft">Leadership</a>
+                <a onclick="reply_clickSkills(this.id)" class="form-control btn btn-default" style="margin-top:1%;margin-right: 1%;" id="Management" value="Soft">management</a> 
+ 
+                <br>
+                <h3>Other</h3>
+                <a onclick="reply_clickSkills(this.id)" class="form-control btn btn-default" style="margin-top:1%;margin-right: 1%;" id="Leadership" value="Other">Leadership</a>
+                <a onclick="reply_clickSkills(this.id)" class="form-control btn btn-default" style="margin-top:1%;margin-right: 1%;" id="Management" value="Other">management</a> 
+
+      </div>
+      <br>
+      <br>
+      <div class="row">
+                <a class="glyphicon glyphicon-plus-sign" style="font-size:24px; top:13px; color:#607D8B; align:right" id="addSkills"></a>
+                <a onclick="step_process(4, 5)" class="form-control btn btn-default" id="skipSkills">Skip</a>
+                <a onclick="" class="form-control btn btn-default" id="submitSkills">Next</a>
+      </div>
       <br />
-      <a onclick="step_process(4, 5)" class="butt">Next</a>
     </div>
+    <script>
+            var technical= new Array();
+            var soft= new Array();
+            var other= new Array();
+                function reply_clickSkills(clicked_id)
+                {
+
+                   var clicked_id=clicked_id;
+                    console.log(clicked_id);
+                    if(document.getElementById(clicked_id).value=="Technical")
+                    {
+                      technical.push(clicked_id);
+                    }
+                    else if(document.getElementById(clicked_id).value=="Soft")
+                    {
+                      soft.push(clicked_id);
+                    }
+                    else
+                    {
+                      other.push(clicked_id);
+                    }
+                    $("#"+clicked_id).css("background","#f2f2f2");
+                }
+                
+                //interestResponse.push("Hello");
+                //interestResponse.push("Hi");
+                //console.log(interestResponse+" Hi");
+                $("#submitSkills").click(function(e){
+                    e.preventDefault();
+                                           var csrf=sessionStorage.getItem('csrf');
+                                           var user=sessionStorage.getItem('username');
+                  var dataSkills = {technical: JSON.stringify(technical), soft: JSON.stringify(soft), other: JSON.stringify(other) csrfmiddlewaretoken: csrf, user: user};
+                                           console.log(dataSkills);
+                                          $.post(
+                                                       "http://127.0.0.1:8000/skills/",
+                                                       dataSkills,
+                                                       function(responseData,status){
+                                                        console.log(responseData);
+                                                        //console.log(responseData.)
+                                                  //if(responseData.)
+                                                      if(responseData.message=="Data Saved")
+                                                      {
+                                                        console.log("Data Saved");
+                                                        //step_process(4,5);
+                                                      }
+                                               
+                                                      }
+                                                );
+                                                //console.log(interestResponse);
+                });
+
+    </script>
   </div>
   <div class="block" id="block5">
     <div class="wrap">
