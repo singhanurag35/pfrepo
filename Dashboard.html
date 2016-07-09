@@ -22,11 +22,11 @@ $( document ).ready(function()
      window.location.href = "login.html";
   }
   
-        $.get(
+       $.get(
           "http://127.0.0.1:8000/create", 
           function(data, textStatus)
         {
-                console.log(data);
+                //console.log(data);
                 document.getElementById("csrfToken").value=data.csrf;
         });
 });
@@ -53,7 +53,7 @@ $( document ).ready(function()
   <div class="area">
 
   <div class="container">
-  <h1>Progress Bar Navigation</h1>
+  <h1>Complete your profile</h1>
 <div class="progress_bar">
       <hr class="all_steps">
       <hr class="current_steps">
@@ -115,7 +115,9 @@ $( document ).ready(function()
       </div>
     </div>
     </form>
-    <a onclick="step_process(1, 2)" class="form-control btn btn-default" id="basicInfo">Next</a>
+    <a onclick="step_process(1, 2)" class="form-control btn btn-default" id="skipbasic">Skip</a>
+    <a onclick="" class="form-control btn btn-default" id="basicInfo">Next</a>
+
     <script>
 
         $('#basicInfo').on("click",function(e) {
@@ -207,31 +209,89 @@ $.ajax({
                       <tr id='annotations_template' title='annotation'>
                        
                          <th class="text-center col-lg-2">
-                         <input type="text" class="fomr-control1 textfield">
+                         <input type="text" class="form-control1 textfield" name="yearOfEducation[]" default="NULL">
                         </th>
                         <th class="text-center col-lg-4">
-                         <input type="text" class="fomr-control1 textfield">
+                         <input type="text" class="form-control1 textfield" name="degreeOfEducation[]">
                         </th>
                         <th class="text-center col-lg-4">
-                         <input type="text" class="fomr-control1 textfield">
+                         <input type="text" class="form-control1 textfield" name="institutionOfEducation[]">
                         </th>
                         <th class="text-center col-lg-2">
-                         <input type="text" class="fomr-control1 textfield">
+                         <input type="text" class="form-control1 textfield" name="aggregateOfEducation[]">
                         </th>
                       </tr>
                     </tbody>
                   </table>
                 </div>
                 <a class="glyphicon glyphicon-plus-sign" style="font-size:24px; color:#607D8B" id="addEducation"></a>
+                <a onclick="step_process(2, 3)" class="form-control btn btn-default" id="skipEducation">Skip</a>
+                <a onclick="" class="form-control btn btn-default" id="submitEducation">Next</a>
               </div>
               <script>
               $("#addEducation").click(function(){
 
 
-                  $("#annotations > tbody").append("<tr><td>row content</td></tr>");
-
-             
+                  $("#annotations > tbody").append("<tr id='annotations_template' title='annotation'>"+
+                         +"<th class='text-center col-lg-2'>"+
+                         +"<input type='text' class='form-control1 textfield' name='year[]'>"+
+                        +"</th><th class='text-center col-lg-4'>"+
+                         +"<input type='text' class='form-control1 textfield' name='degree[]'>"+
+                        +"</th><th class='text-center col-lg-4'>"+
+                         +"<input type='text' class='form-control1 textfield' name='institution[]'>"+
+                        +"</th><th class='text-center col-lg-2'>"+
+                         +"<input type='text' class='form-control1 textfield' name='aggregate[]'>"+
+                        +"</th></tr>");
                    });
+
+               $("#submitEducation").click(function(e){
+                       var csrf=sessionStorage.getItem('csrf');
+                       var user=sessionStorage.getItem('username');
+                       /*$.get(
+                                "http://127.0.0.1:8000/education", 
+                                function(data, textStatus)
+                              {
+                                      //console.log(data);
+                                      csrf=data.csrf;
+                              });*/
+                      //var yearOfEducation=document.getElementById("yearOfEducation").value;
+                       var yearOfEducation = new Array();
+                      $('input[name^="yearOfEducation"]').each(function() {
+                          yearOfEducation.push($(this).val());
+                      });
+                      var degreeOfEducation = new Array();
+                      $('input[name^="degreeOfEducation"]').each(function() {
+                          degreeOfEducation.push($(this).val());
+                      });
+                       var institutionOfEducation = new Array();
+                      $('input[name^="institutionOfEducation"]').each(function() {
+                          institutionOfEducation.push($(this).val());
+                      });
+                      var aggregateOfEducation = new Array();
+                      $('input[name^="aggregateOfEducation"]').each(function() {
+                          aggregateOfEducation.push($(this).val());
+                      });
+                       console.log(csrf);
+                       //console.log(degreeOfEducation);
+                       var dataEducation={year: yearOfEducation, degree: degreeOfEducation, institution: institutionOfEducation, agreegate: aggregateOfEducation, csrfmiddlewaretoken: csrf, user: user}
+                        console.log(dataEducation);
+                          e.preventDefault();
+                                $.post(
+                                             "http://127.0.0.1:8000/education/",
+                                             dataEducation,
+                                             function(responseData,status){
+                                    console.log(responseData);
+                                    //console.log(responseData.)
+                              //if(responseData.)
+                                     step_process(3,4);
+                                    }
+                            );
+
+
+                
+                   });
+
+
 
               </script>
 
@@ -353,11 +413,23 @@ $.ajax({
         <script>
 
         $('#logout').on("click",function(e) {
-        var csrf=sessionStorage.getItem('csrf');
+    var csrf="";
+         $.get(
+                  "http://127.0.0.1:8000/accounts/logout", 
+                  function(data, textStatus)
+                {
+                        console.log(data);
+                        csrf=data.csrf;
+                });
+
+
+       // var csrf=sessionStorage.getItem('csrf');
+       //var csrf=document.getElementById("csrfToken").value;
         var session_id=sessionStorage.getItem('session_id');
+        var username=sessionStorage.getItem('username');
         console.log(csrf);
-        var dataInp={csrfmiddlewaretoken: csrf, session_id: session_id};
-//console.log(dataInp);
+        var dataInp={csrfmiddlewaretoken: csrf, user: username};
+        //console.log(dataInp);
         e.preventDefault();
         $.post(
                      "http://127.0.0.1:8000/accounts/logout",
