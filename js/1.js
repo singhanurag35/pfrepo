@@ -57,7 +57,7 @@ function step_process(from, to, dir) {
         // Next Step
         if (from < to) $("#step"+from).addClass('complete').removeClass('current');
         else $("#step"+from).removeClass('complete').removeClass('current');
-        var width = (parseInt(to) - 1) * 20;
+        var width = (parseInt(to) - 1) * 6.66;
         $(".progress_bar").find('.current_steps').animate({'width': width+'%'}, speed, function() {
             $("#step"+to).removeClass('complete').addClass('current');
         });
@@ -76,14 +76,14 @@ function step_process(from, to, dir) {
 function move_to_step(step, end, dir, step_speed) {
     if (dir == 'asc') {
         $("#step"+step).addClass('complete').removeClass('current');
-        var width = (parseInt(step+1) - 1) * 20;
+        var width = (parseInt(step+1) - 1) * 6.66;
         $(".progress_bar").find('.current_steps').animate({'width': width+'%'}, step_speed, function() {
             $("#step"+(step+1)).removeClass('complete').addClass('current');
             if (step+1 < end) move_to_step((step+1), end, dir, step_speed);
         });
     } else {
         $("#step"+step).removeClass('complete').removeClass('current');
-        var width = (parseInt(step-1) - 1) * 20;
+        var width = (parseInt(step-1) - 1) * 6.66;
         $(".progress_bar").find('.current_steps').animate({'width': width+'%'}, step_speed, function() {
             $("#step"+(step-1)).removeClass('complete').addClass('current');
             if (step-1 > end) move_to_step((step-1), end, dir, step_speed);
