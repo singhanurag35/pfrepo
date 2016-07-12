@@ -54,7 +54,7 @@ $( document ).ready(function()
 
   <div class="container">
   <h1>Complete your profile</h1>
-<div class="progress_bar">
+ <div class="progress_bar">
       <hr class="all_steps">
       <hr class="current_steps">
       <div class="step current" id="step1" data-step="1">
@@ -71,6 +71,27 @@ $( document ).ready(function()
       </div>
       <div class="step" id="step5" data-step="5">
           Step 5
+      </div>
+        <div class="step" id="step6" data-step="6">
+          Step 6
+      </div>
+            <div class="step" id="step7" data-step="2">
+          Step 7
+      </div>
+      <div class="step" id="step8" data-step="3">
+          Step 8
+      </div>
+      <div class="step" id="step9" data-step="4">
+          Step 9
+      </div>
+      <div class="step" id="step10" data-step="5">
+          Step 10
+      </div>
+        <div class="step" id="step11" data-step="6">
+          Step 11
+      </div>
+      <div class="step" id="step12" data-step="6">
+          Step 12
       </div>
   </div>
 
@@ -212,14 +233,15 @@ $.ajax({
                          <input type="text" class="form-control1 textfield" name="yearOfEducation[]" default="NULL">
                         </th>
                         <th class="text-center col-lg-4">
-                         <input type="text" class="form-control1 textfield" name="degreeOfEducation[]">
+                         <input type="text" class="form-control1 textfield" name="degreeOfEducation[]" default="NULL">
                         </th>
                         <th class="text-center col-lg-4">
-                         <input type="text" class="form-control1 textfield" name="institutionOfEducation[]">
+                         <input type="text" class="form-control1 textfield" name="institutionOfEducation[]" default="NULL">
                         </th>
                         <th class="text-center col-lg-2">
-                         <input type="text" class="form-control1 textfield" name="aggregateOfEducation[]">
+                         <input type="text" class="form-control1 textfield" name="aggregateOfEducation[]" default="NULL">
                         </th>
+
                       </tr>
                     </tbody>
                   </table>
@@ -229,20 +251,6 @@ $.ajax({
                 <a onclick="" class="form-control btn btn-default" id="submitEducation">Next</a>
               </div>
               <script>
-              $("#addEducation").click(function(){
-
-
-                  $("#annotations > tbody").append("<tr id='annotations_template' title='annotation'>"+
-                         +"<th class='text-center col-lg-2'>"+
-                         +"<input type='text' class='form-control1 textfield' name='year[]'>"+
-                        +"</th><th class='text-center col-lg-4'>"+
-                         +"<input type='text' class='form-control1 textfield' name='degree[]'>"+
-                        +"</th><th class='text-center col-lg-4'>"+
-                         +"<input type='text' class='form-control1 textfield' name='institution[]'>"+
-                        +"</th><th class='text-center col-lg-2'>"+
-                         +"<input type='text' class='form-control1 textfield' name='aggregate[]'>"+
-                        +"</th></tr>");
-                   });
 
                $("#submitEducation").click(function(e){
                        var csrf=sessionStorage.getItem('csrf');
@@ -380,24 +388,24 @@ $.ajax({
       <h2>Skills</h2>
      <div class="row">
                 <h3>Technical</h3>
-                <a onclick="reply_clickSkills(this.id)" class="form-control btn btn-default" style="margin-top:1%;margin-right: 1%;" id="Android" value="Technical">Android</a>
-                <a onclick="reply_clickSkills(this.id)" class="form-control btn btn-default" style="margin-top:1%;margin-right: 1%;" id="Java" value="Technical">Java</a> 
-                <a onclick="reply_clickSkills(this.id)" class="form-control btn btn-default" style="margin-top:1%;margin-right: 1%;" id="AI" value="Technical">AI</a>
-                <a onclick="reply_clickSkills(this.id)" class="form-control btn btn-default" style="margin-top:1%;margin-right: 1%;" id="Python" value="Technical">Python</a>
-                <a onclick="reply_clickSkills(this.id)" class="form-control btn btn-default" style="margin-top:1%;margin-right: 1%;" id="Matlab" value="Technical">Matlab</a>
-                <a onclick="reply_clickSkills(this.id)" class="form-control btn btn-default" style="margin-top:1%;margin-right: 1%;" id="C++" value="Technical">C++</a>
-                <a onclick="reply_clickSkills(this.id)" class="form-control btn btn-default" style="margin-top:1%;margin-right: 1%;" id="Robotics" value="Technical">Robotics</a>
-                <a onclick="reply_clickSkills(this.id)" class="form-control btn btn-default" style="margin-top:1%;margin-right: 1%;" id="PHP" value="Technical">PHP</a>
+                <a onclick="reply_clickSkills(this.id,'Technical')" class="form-control btn btn-default" style="margin-top:1%;margin-right: 1%;" id="Android">Android</a>
+                <a onclick="reply_clickSkills(this.id,'Technical')" class="form-control btn btn-default" style="margin-top:1%;margin-right: 1%;" id="Java">Java</a> 
+                <a onclick="reply_clickSkills(this.id,'Technical')" class="form-control btn btn-default" style="margin-top:1%;margin-right: 1%;" id="AI">AI</a>
+                <a onclick="reply_clickSkills(this.id,'Technical')" class="form-control btn btn-default" style="margin-top:1%;margin-right: 1%;" id="Python">Python</a>
+                <a onclick="reply_clickSkills(this.id,'Technical')" class="form-control btn btn-default" style="margin-top:1%;margin-right: 1%;" id="Matlab">Matlab</a>
+                <a onclick="reply_clickSkills(this.id,'Technical')" class="form-control btn btn-default" style="margin-top:1%;margin-right: 1%;" id="C++">C++</a>
+                <a onclick="reply_clickSkills(this.id,'Technical')" class="form-control btn btn-default" style="margin-top:1%;margin-right: 1%;" id="Robotics">Robotics</a>
+                <a onclick="reply_clickSkills(this.id,'Technical')" class="form-control btn btn-default" style="margin-top:1%;margin-right: 1%;" id="PHP">PHP</a>
                <!-- <a onclick="step_process(2, 3)" class="form-control btn btn-default" style="margin-top:1%;margin-right: 1%;" id="Entrepreneurship">Entrepreneurship</a>-->
                <br>
                 <h3>Soft</h3>
-                <a onclick="reply_clickSkills(this.id)" class="form-control btn btn-default" style="margin-top:1%;margin-right: 1%;" id="Leadership" value="Soft">Leadership</a>
-                <a onclick="reply_clickSkills(this.id)" class="form-control btn btn-default" style="margin-top:1%;margin-right: 1%;" id="Management" value="Soft">management</a> 
+                <a onclick="reply_clickSkills(this.id,'Soft')" class="form-control btn btn-default" style="margin-top:1%;margin-right: 1%;" id="Leadership">Leadership</a>
+                <a onclick="reply_clickSkills(this.id,'Soft')" class="form-control btn btn-default" style="margin-top:1%;margin-right: 1%;" id="Management">management</a> 
  
                 <br>
                 <h3>Other</h3>
-                <a onclick="reply_clickSkills(this.id)" class="form-control btn btn-default" style="margin-top:1%;margin-right: 1%;" id="Leadership" value="Other">Leadership</a>
-                <a onclick="reply_clickSkills(this.id)" class="form-control btn btn-default" style="margin-top:1%;margin-right: 1%;" id="Management" value="Other">management</a> 
+                <a onclick="reply_clickSkills(this.id,'Other')" class="form-control btn btn-default" style="margin-top:1%;margin-right: 1%;" id="LeadershipOther">Leadership</a>
+                <a onclick="reply_clickSkills(this.id,'Other')" class="form-control btn btn-default" style="margin-top:1%;margin-right: 1%;" id="ManagementOther">management</a> 
 
       </div>
       <br>
@@ -413,22 +421,27 @@ $.ajax({
             var technical= new Array();
             var soft= new Array();
             var other= new Array();
-                function reply_clickSkills(clicked_id)
+                function reply_clickSkills(clicked_id,value)
                 {
-
-                   var clicked_id=clicked_id;
-                    console.log(clicked_id);
-                    if(document.getElementById(clicked_id).value=="Technical")
+                   // console.log(objButton.value);
+                    //console.log(clicked_id);
+                    console.log(value);
+                    //console.log(document.getElementById(objButton.id).value);
+                    if(value=="Technical")
                     {
                       technical.push(clicked_id);
                     }
-                    else if(document.getElementById(clicked_id).value=="Soft")
+                    else if(value=="Soft")
                     {
                       soft.push(clicked_id);
                     }
-                    else
+                    else if(value=="Other")
                     {
                       other.push(clicked_id);
+                    }
+                    else
+                    {
+
                     }
                     $("#"+clicked_id).css("background","#f2f2f2");
                 }
@@ -440,7 +453,7 @@ $.ajax({
                     e.preventDefault();
                                            var csrf=sessionStorage.getItem('csrf');
                                            var user=sessionStorage.getItem('username');
-                  var dataSkills = {technical: JSON.stringify(technical), soft: JSON.stringify(soft), other: JSON.stringify(other) csrfmiddlewaretoken: csrf, user: user};
+                  var dataSkills = {technical: JSON.stringify(technical), soft: JSON.stringify(soft), other: JSON.stringify(other), csrfmiddlewaretoken: csrf, user: user};
                                            console.log(dataSkills);
                                           $.post(
                                                        "http://127.0.0.1:8000/skills/",
@@ -462,14 +475,1040 @@ $.ajax({
 
     </script>
   </div>
+
+
+
   <div class="block" id="block5">
-    <div class="wrap">
-      <h2>Block 5</h2>
-      <p>Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur. Nulla vitae elit libero, a pharetra augue. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-      <br />
-      Use the progress bar at the top as a navigation back.
+    <    <div class="wrap">
+      <div class="container">
+
+        <script type="text/javascript" src="js/1.js"></script>
+       
+
+          <div class="row clearfix">
+                <div class="col-lg-12 column">
+                <h3>Certifications</h3>
+                  <table class="table" id="annotations">
+                    <thead>
+                      <tr>
+                        <th class="text-center col-lg-2">
+                          Year
+                        </th>
+                        <th class="text-center col-lg-4">
+                          Agency
+                        </th>
+                        <th class="text-center col-lg-4">
+                          Details
+                        </th>
+                        <th class="text-center col-lg-2">
+                          Mode
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr id='annotations_template' title='annotation'>
+                         <th class="text-center col-lg-2">
+                         <input type="text" class="form-control1 textfield" name="yearOfCertification[]" default="NULL">
+                        </th>
+                        <th class="text-center col-lg-4">
+                         <input type="text" class="form-control1 textfield" name="agencyOfCertification[]" default="NULL">
+                        </th>
+                        <th class="text-center col-lg-4">
+                         <input type="text" class="form-control1 textfield" name="detailsOfCertification[]" default="NULL">
+                        </th>
+                        <th class="text-center col-lg-2">
+                         <select class="form-control1 textfield" name="modeOfCertification[]" default="NULL">
+                            <option value="Online">Online</option>
+                            <option value="Offline">Offline</option>
+                         </select>
+                        </th>
+                      </tr>
+                        <tr id='annotations_template' title='annotation'>
+                         <th class="text-center col-lg-2">
+                         <input type="text" class="form-control1 textfield" name="yearOfCertification[]" default="NULL">
+                        </th>
+                        <th class="text-center col-lg-4">
+                         <input type="text" class="form-control1 textfield" name="agencyOfCertification[]" default="NULL">
+                        </th>
+                        <th class="text-center col-lg-4">
+                         <input type="text" class="form-control1 textfield" name="detailsOfCertification[]" default="NULL">
+                        </th>
+                        <th class="text-center col-lg-2">
+                         <select class="form-control1 textfield" name="modeOfCertification[]">
+                            <option value="Online">Online</option>
+                            <option value="Offline">Offline</option>
+                         </select>
+                        </th>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <a class="glyphicon glyphicon-plus-sign" style="font-size:24px; color:#607D8B" id="addcertification"></a>
+                <a onclick="step_process(5, 6)" class="form-control btn btn-default" id="skipCertification">Skip</a>
+                <a onclick="" class="form-control btn btn-default" id="submitCertification">Next</a>
+              </div>
+              <script>
+
+               $("#submitCertification").click(function(e){
+                       var csrf=sessionStorage.getItem('csrf');
+                       var user=sessionStorage.getItem('username');
+                       /*$.get(
+                                "http://127.0.0.1:8000/education", 
+                                function(data, textStatus)
+                              {
+                                      //console.log(data);
+                                      csrf=data.csrf;
+                              });*/
+                      //var yearOfEducation=document.getElementById("yearOfEducation").value;
+                       var yearOfCertification =new Array();
+                      $('input[name^="yearOfCertification"]').each(function() {
+                          yearOfCertification.push($(this).val());
+                      });
+                      var agencyOfCertification = new Array();
+                      $('input[name^="agencyOfCertification"]').each(function() {
+                          agencyOfCertification.push($(this).val());
+                      });
+                       var detailsOfCertification = new Array();
+                      $('input[name^="detailsOfCertification"]').each(function() {
+                          detailsOfCertification.push($(this).val());
+                      });
+                      /*var modeOfCertification = new Array();
+                      $('input[name^="modeOfCertification"]').each(function() {
+                          modeOfCertification.push($(this).val());
+                      });*/
+                      var modeOfCertification = new Array();
+                      $('select[name="modeOfCertification[]"]').map(function(){
+                          if ($(this).val())
+                              modeOfCertification.push($(this).val());
+                      });
+                       //console.log(csrf);
+                       //console.log(degreeOfEducation);
+                       var dataCertification={year: JSON.stringify(yearOfCertification), agency: JSON.stringify(agencyOfCertification), details: JSON.stringify(detailsOfCertification), mode: JSON.stringify(modeOfCertification), csrfmiddlewaretoken: csrf, user: user}
+                        console.log(dataCertification);
+                          e.preventDefault();
+                                $.post(
+                                             "http://127.0.0.1:8000/certification/",
+                                             dataCertification,
+                                             function(responseData,status){
+                                    console.log(responseData);
+                                    //console.log(responseData.)
+                              //if(responseData.)
+                                  if(responseData.message=="Data Saved")
+                                  {
+                                    //step_process(2,3);
+                                  }
+                                     
+                                    }
+                            );
+
+
+                
+                   });
+
+              </script>
+     </div>
     </div>
+
   </div>
+
+  <div class="block" id="block6">
+    <    <div class="wrap">
+      <div class="container">
+
+        <script type="text/javascript" src="js/1.js"></script>
+       
+
+          <div class="row clearfix">
+                <div class="col-lg-12 column">
+                <h3>Publications</h3>
+                  <table class="table" id="annotations">
+                    <thead>
+                      <tr>
+                        <th class="text-center col-lg-2">
+                          Year
+                        </th>
+                        <th class="text-center col-lg-3">
+                          Journal
+                        </th>
+                         <th class="text-center col-lg-2">
+                          Level
+                        </th>
+                        <th class="text-center col-lg-3">
+                          Details
+                        </th>
+                        <th class="text-center col-lg-2">
+                          Status
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr id='annotations_template' title='annotation'>
+                         <th class="text-center col-lg-2">
+                         <input type="text" class="form-control1 textfield" name="yearOfPublication[]" default="NULL">
+                        </th>
+                        <th class="text-center col-lg-3">
+                         <input type="text" class="form-control1 textfield" name="journalOfPublication[]" default="NULL">
+                        </th>
+                        <th class="text-center col-lg-2">
+                         <select class="form-control1 textfield" name="levelOfJournal[]" default="NULL">
+                            <option value="National">National</option>
+                            <option value="International">International</option>
+                         </select>
+                        </th>
+                        <th class="text-center col-lg-3">
+                         <input type="text" class="form-control1 textfield" name="detailsOfPublication[]" default="NULL">
+                        </th>
+                        <th class="text-center col-lg-2">
+                         <select class="form-control1 textfield" name="statusOfPublication[]" default="NULL">
+                            <option value="Submitted">Submitted</option>
+                            <option value="Manuscript under preparation">Manuscript under preparation</option>
+                            <option value="Communicated">Communicated</option>
+                         </select>
+                        </th>
+                      </tr>
+                        <tr id='annotations_template' title='annotation'>
+                         <th class="text-center col-lg-2">
+                         <input type="text" class="form-control1 textfield" name="yearOfPublication[]" default="NULL">
+                        </th>
+                        <th class="text-center col-lg-3">
+                         <input type="text" class="form-control1 textfield" name="journalOfPublication[]" default="NULL">
+                        </th>
+                        <th class="text-center col-lg-2">
+                         <select class="form-control1 textfield" name="levelOfJournal[]" default="NULL">
+                            <option value="National">National</option>
+                            <option value="International">International</option>
+                         </select>
+                        </th>
+                        <th class="text-center col-lg-3">
+                         <input type="text" class="form-control1 textfield" name="detailsOfPublication[]" default="NULL">
+                        </th>
+                        <th class="text-center col-lg-2">
+                         <select class="form-control1 textfield" name="statusOfPublication[]" default="NULL">
+                            <option value="Submitted">Submitted</option>
+                            <option value="Manuscript under preparation">Manuscript under preparation</option>
+                            <option value="Communicated">Communicated</option>
+                         </select>
+                        </th>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <a class="glyphicon glyphicon-plus-sign" style="font-size:24px; color:#607D8B" id="addPublication"></a>
+                <a onclick="step_process(6, 7)" class="form-control btn btn-default" id="skipPublication">Skip</a>
+                <a onclick="" class="form-control btn btn-default" id="submitPublication">Next</a>
+              </div>
+              <script>
+
+               $("#submitPublication").click(function(e){
+                       var csrf=sessionStorage.getItem('csrf');
+                       var user=sessionStorage.getItem('username');
+                       /*$.get(
+                                "http://127.0.0.1:8000/education", 
+                                function(data, textStatus)
+                              {
+                                      //console.log(data);
+                                      csrf=data.csrf;
+                              });*/
+                      //var yearOfEducation=document.getElementById("yearOfEducation").value;
+                       var yearOfPublication =new Array();
+                      $('input[name^="yearOfPublication"]').each(function() {
+                          yearOfPublication.push($(this).val());
+                      });
+                      var journalOfPublication = new Array();
+                      $('input[name^="journalOfPublication"]').each(function() {
+                          journalOfPublication.push($(this).val());
+                      });
+                       var detailsOfPublication = new Array();
+                      $('input[name^="detailsOfPublication"]').each(function() {
+                          detailsOfPublication.push($(this).val());
+                      });
+                      /*var modeOfCertification = new Array();
+                      $('input[name^="modeOfCertification"]').each(function() {
+                          modeOfCertification.push($(this).val());
+                      });*/
+                      var levelOfJournal = new Array();
+                      $('select[name="levelOfJournal[]"]').map(function(){
+                          if ($(this).val())
+                              levelOfJournal.push($(this).val());
+                      });
+
+                       var statusOfPublication = new Array();
+                      $('select[name="statusOfPublication[]"]').map(function(){
+                          if ($(this).val())
+                              statusOfPublication.push($(this).val());
+                      });
+                       //console.log(csrf);
+                       //console.log(degreeOfEducation);
+                       var dataPublication={year: JSON.stringify(yearOfPublication), journal: JSON.stringify(journalOfPublication), details: JSON.stringify(detailsOfPublication), level: JSON.stringify(levelOfJournal), status: JSON.stringify(statusOfPublication), csrfmiddlewaretoken: csrf, user: user}
+                        console.log(dataPublication);
+                          e.preventDefault();
+                                $.post(
+                                             "http://127.0.0.1:8000/publication/",
+                                             dataPublication,
+                                             function(responseData,status){
+                                    console.log(responseData);
+                                    //console.log(responseData.)
+                              //if(responseData.)
+                                  if(responseData.message=="Data Saved")
+                                  {
+                                    //step_process(2,3);
+                                  }
+                                     
+                                    }
+                            );
+
+
+                
+                   });
+
+              </script>
+     </div>
+    </div>
+
+  </div>
+
+  <div class="block" id="block7">
+     <div class="wrap">
+      <div class="container">
+
+        <script type="text/javascript" src="js/1.js"></script>
+       
+
+          <div class="row clearfix">
+                <div class="col-lg-12 column">
+                <h3>Patents</h3>
+                  <table class="table" id="annotations">
+                    <thead>
+                      <tr>
+                        <th class="text-center col-lg-2">
+                          Year
+                        </th>
+                        <th class="text-center col-lg-4">
+                          Details
+                        </th>
+                        <th class="text-center col-lg-2">
+                          Status
+                        </th>
+                        <th class="text-center col-lg-4">
+                          Patent Application Number
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr id='annotations_template' title='annotation'>
+                         <th class="text-center col-lg-2">
+                         <input type="text" class="form-control1 textfield" name="yearOfPatent[]" default="NULL">
+                        </th>
+                        <th class="text-center col-lg-4">
+                         <input type="text" class="form-control1 textfield" name="detailsOfPatent[]" default="NULL">
+                        </th>
+                        <th class="text-center col-lg-2">
+                         <select class="form-control1 textfield" name="statusOfPatent[]" default="NULL">
+                            <option value="Applied">Applied</option>
+                            <option value="Approved">Approved</option>
+                         </select>
+                        </th>
+                        <th class="text-center col-lg-3">
+                         <input type="text" class="form-control1 textfield" name="patentNumber[]" default="NULL">
+                        </th>
+                      </tr>
+                          <tr id='annotations_template' title='annotation'>
+                         <th class="text-center col-lg-2">
+                         <input type="text" class="form-control1 textfield" name="yearOfPatent[]" default="NULL">
+                        </th>
+                        <th class="text-center col-lg-4">
+                         <input type="text" class="form-control1 textfield" name="detailsOfPatent[]" default="NULL">
+                        </th>
+                        <th class="text-center col-lg-2">
+                         <select class="form-control1 textfield" name="statusOfPatent[]" default="NULL">
+                            <option value="Applied">Applied</option>
+                            <option value="Approved">Approved</option>
+                         </select>
+                        </th>
+                        <th class="text-center col-lg-3">
+                         <input type="text" class="form-control1 textfield" name="patentNumber[]" default="NULL">
+                        </th>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <a class="glyphicon glyphicon-plus-sign" style="font-size:24px; color:#607D8B" id="addPatent"></a>
+                <a onclick="step_process(7, 8)" class="form-control btn btn-default" id="skipPatent">Skip</a>
+                <a onclick="" class="form-control btn btn-default" id="submitPatent">Next</a>
+              </div>
+              <script>
+
+               $("#submitPatent").click(function(e){
+                       var csrf=sessionStorage.getItem('csrf');
+                       var user=sessionStorage.getItem('username');
+                       /*$.get(
+                                "http://127.0.0.1:8000/education", 
+                                function(data, textStatus)
+                              {
+                                      //console.log(data);
+                                      csrf=data.csrf;
+                              });*/
+                      //var yearOfEducation=document.getElementById("yearOfEducation").value;
+                       var yearOfPatent =new Array();
+                      $('input[name^="yearOfPatent"]').each(function() {
+                          yearOfPatent.push($(this).val());
+                      });
+                      var detailsOfPatent = new Array();
+                      $('input[name^="detailsOfPatent"]').each(function() {
+                          detailsOfPatent.push($(this).val());
+                      });
+
+                      /*var modeOfCertification = new Array();
+                      $('input[name^="modeOfCertification"]').each(function() {
+                          modeOfCertification.push($(this).val());
+                      });*/
+                      var statusOfPatent = new Array();
+                      $('select[name="statusOfPatent[]"]').map(function(){
+                          if ($(this).val())
+                              statusOfPatent.push($(this).val());
+                      });
+                      var patentNumber =new Array();
+                      $('input[name^="patentNumber"]').each(function() {
+                          patentNumber.push($(this).val());
+                      });
+
+                       //console.log(csrf);
+                       //console.log(degreeOfEducation);
+                       var dataPatent={year: JSON.stringify(yearOfPatent), details: JSON.stringify(detailsOfPatent), status: JSON.stringify(statusOfPatent), patent_no: JSON.stringify(patentNumber), csrfmiddlewaretoken: csrf, user: user}
+                        console.log(dataPatent);
+                          e.preventDefault();
+                                $.post(
+                                             "http://127.0.0.1:8000/patent/",
+                                             dataPatent,
+                                             function(responseData,status){
+                                    console.log(responseData);
+                                    //console.log(responseData.)
+                              //if(responseData.)
+                                  if(responseData.message=="Data Saved")
+                                  {
+                                    //step_process(2,3);
+                                  }
+                                     
+                                    }
+                            );
+
+
+                
+                   });
+
+              </script>
+     </div>
+    </div>
+
+  </div>
+
+
+  <div class="block" id="block8">
+     <div class="wrap">
+      <div class="container">
+
+        <script type="text/javascript" src="js/1.js"></script>
+       
+
+          <div class="row clearfix">
+                <div class="col-lg-12 column">
+                <h3>Articles</h3>
+                  <table class="table" id="annotations">
+                    <thead>
+                      <tr>
+                        <th class="text-center col-lg-2">
+                          Year
+                        </th>
+                        <th class="text-center col-lg-2">
+                          Title
+                        </th>
+                        <th class="text-center col-lg-2">
+                          Magazine/Newspaper
+                        </th>
+                        <th class="text-center col-lg-4">
+                          Details
+                        </th>
+                        <th class="text-center col-lg-2">
+                          Link
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                         <th class="text-center col-lg-2">
+                         <input type="text" class="form-control1 textfield" name="yearOfArticle[]" default="NULL">
+                        </th>
+                        <th class="text-center col-lg-2">
+                         <input type="text" class="form-control1 textfield" name="titleOfArticle[]" default="NULL">
+                        </th>
+                        <th class="text-center col-lg-2">
+                         <input type="text" class="form-control1 textfield" name="nameOfArticlePublish[]" default="NULL">
+                        </th>
+                        <th class="text-center col-lg-4">
+                          <input type="text" class="form-control1 textfield" name="detailsOfArticle[]" default="NULL">
+                        </th>
+                        <th class="text-center col-lg-2">
+                         <input type="text" class="form-control1 textfield" name="linkOfArticle[]" default="NULL">
+                        </th>
+                      </tr>
+                        <tr>
+                         <th class="text-center col-lg-2">
+                         <input type="text" class="form-control1 textfield" name="yearOfArticle[]" default="NULL">
+                        </th>
+                        <th class="text-center col-lg-2">
+                         <input type="text" class="form-control1 textfield" name="titleOfArticle[]" default="NULL">
+                        </th>
+                        <th class="text-center col-lg-2">
+                         <input type="text" class="form-control1 textfield" name="nameOfArticlePublish[]" default="NULL">
+                        </th>
+                        <th class="text-center col-lg-4">
+                          <input type="text" class="form-control1 textfield" name="detailsOfArticle[]" default="NULL">
+                        </th>
+                        <th class="text-center col-lg-2">
+                         <input type="text" class="form-control1 textfield" name="linkOfArticle[]" default="NULL">
+                        </th>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <a class="glyphicon glyphicon-plus-sign" style="font-size:24px; color:#607D8B" id="addArticle"></a>
+                <a onclick="step_process(8, 9)" class="form-control btn btn-default" id="skipArticle">Skip</a>
+                <a onclick="" class="form-control btn btn-default" id="submitArticle">Next</a>
+              </div>
+              <script>
+
+               $("#submitArticle").click(function(e){
+                       var csrf=sessionStorage.getItem('csrf');
+                       var user=sessionStorage.getItem('username');
+                       /*$.get(
+                                "http://127.0.0.1:8000/education", 
+                                function(data, textStatus)
+                              {
+                                      //console.log(data);
+                                      csrf=data.csrf;
+                              });*/
+                      //var yearOfEducation=document.getElementById("yearOfEducation").value;
+                       var yearOfArticle =new Array();
+                      $('input[name^="yearOfArticle"]').each(function() {
+                          yearOfArticle.push($(this).val());
+                      });
+                      var detailsOfArticle = new Array();
+                      $('input[name^="detailsOfArticle"]').each(function() {
+                          detailsOfArticle.push($(this).val());
+                      });
+
+                      var nameOfArticlePublish = new Array();
+                      $('input[name^="nameOfArticlePublish"]').each(function() {
+                          nameOfArticlePublish.push($(this).val());
+                      });
+                     
+                      var titleOfArticle =new Array();
+                      $('input[name^="titleOfArticle"]').each(function() {
+                          titleOfArticle.push($(this).val());
+                      });
+
+                      var linkOfArticle =new Array();
+                      $('input[name^="linkOfArticle"]').each(function() {
+                          linkOfArticle.push($(this).val());
+                      });
+
+                       //console.log(csrf);
+                       //console.log(degreeOfEducation);
+                       var dataArticle={year: JSON.stringify(yearOfArticle), details: JSON.stringify(detailsOfArticle), publisher: JSON.stringify(nameOfArticlePublish), title: JSON.stringify(titleOfArticle), links: JSON.stringify(linkOfArticle), csrfmiddlewaretoken: csrf, user: user}
+                        console.log(dataArticle);
+                          e.preventDefault();
+                                $.post(
+                                             "http://127.0.0.1:8000/article/",
+                                             dataArticle,
+                                             function(responseData,status){
+                                    console.log(responseData);
+                                    //console.log(responseData.)
+                              //if(responseData.)
+                                  if(responseData.message=="Data Saved")
+                                  {
+                                    //step_process(2,3);
+                                  }
+                                     
+                                    }
+                            );
+
+
+                
+                   });
+
+              </script>
+     </div>
+    </div>
+
+  </div>
+
+    <div class="block" id="block9">
+     <div class="wrap">
+      <div class="container">
+
+        <script type="text/javascript" src="js/1.js"></script>
+       
+
+          <div class="row clearfix">
+                <div class="col-lg-12 column">
+                <h3>Books</h3>
+                  <table class="table" id="annotations">
+                    <thead>
+                      <tr>
+                        <th class="text-center col-lg-2">
+                          Year
+                        </th>
+                        <th class="text-center col-lg-2">
+                          Title
+                        </th>
+                        <th class="text-center col-lg-2">
+                          Publisher
+                        </th>
+                        <th class="text-center col-lg-2">
+                          Details
+                        </th>
+                        <th class="text-center col-lg-4">
+                          ISBN No
+                        </th>
+                        <th class="text-center col-lg-2">
+                          Link
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                         <th class="text-center col-lg-2">
+                         <input type="text" class="form-control1 textfield" name="yearOfBook[]" default="NULL">
+                        </th>
+                        <th class="text-center col-lg-2">
+                         <input type="text" class="form-control1 textfield" name="titleOfBook[]" default="NULL">
+                        </th>
+                        <th class="text-center col-lg-2">
+                         <input type="text" class="form-control1 textfield" name="nameOfPublisher[]" default="NULL">
+                        </th>
+                        <th class="text-center col-lg-2">
+                         <input type="text" class="form-control1 textfield" name="detailsOfBook[]" default="NULL">
+                        </th>
+                        <th class="text-center col-lg-4">
+                          <input type="text" class="form-control1 textfield" name="ISBN[]" default="NULL">
+                        </th>
+                        <th class="text-center col-lg-2">
+                         <input type="text" class="form-control1 textfield" name="Link[]" default="NULL">
+                        </th>
+                      </tr>
+                    <tr>
+                         <th class="text-center col-lg-2">
+                         <input type="text" class="form-control1 textfield" name="yearOfBook[]" default="NULL">
+                        </th>
+                        <th class="text-center col-lg-2">
+                         <input type="text" class="form-control1 textfield" name="titleOfBook[]" default="NULL">
+                        </th>
+                        <th class="text-center col-lg-2">
+                         <input type="text" class="form-control1 textfield" name="nameOfPublisher[]" default="NULL">
+                        </th>
+                        <th class="text-center col-lg-2">
+                         <input type="text" class="form-control1 textfield" name="detailsOfBook[]" default="NULL">
+                        </th>
+                        <th class="text-center col-lg-4">
+                          <input type="text" class="form-control1 textfield" name="ISBN[]" default="NULL">
+                        </th>
+                        <th class="text-center col-lg-2">
+                         <input type="text" class="form-control1 textfield" name="Link[]" default="NULL">
+                        </th>
+                    </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <a class="glyphicon glyphicon-plus-sign" style="font-size:24px; color:#607D8B" id="addBook"></a>
+                <a onclick="step_process(9, 10)" class="form-control btn btn-default" id="skipBook">Skip</a>
+                <a onclick="" class="form-control btn btn-default" id="submitBook">Next</a>
+              </div>
+              <script>
+
+               $("#submitBook").click(function(e){
+                       var csrf=sessionStorage.getItem('csrf');
+                       var user=sessionStorage.getItem('username');
+                       /*$.get(
+                                "http://127.0.0.1:8000/education", 
+                                function(data, textStatus)
+                              {
+                                      //console.log(data);
+                                      csrf=data.csrf;
+                              });*/
+                      //var yearOfEducation=document.getElementById("yearOfEducation").value;
+                       var yearOfBook =new Array();
+                      $('input[name^="yearOfBook"]').each(function() {
+                          yearOfBook.push($(this).val());
+                      });
+                      var titleOfBook = new Array();
+                      $('input[name^="titleOfBook"]').each(function() {
+                          titleOfBook.push($(this).val());
+                      });
+
+                      var nameOfPublisher = new Array();
+                      $('input[name^="nameOfPublisher"]').each(function() {
+                          nameOfPublisher.push($(this).val());
+                      });
+                      var detailsOfBook = new Array();
+                      $('input[name^="detailsOfBook"]').each(function() {
+                          detailsOfBook.push($(this).val());
+                      });
+                     
+                      var ISBN =new Array();
+                      $('input[name^="ISBN"]').each(function() {
+                          ISBN.push($(this).val());
+                      });
+
+                      var Link =new Array();
+                      $('input[name^="Link"]').each(function() {
+                          Link.push($(this).val());
+                      });
+
+                       //console.log(csrf);
+                       //console.log(degreeOfEducation);
+                       var dataBook={year: JSON.stringify(yearOfBook), title: JSON.stringify(titleOfBook) , publisher: JSON.stringify(nameOfPublisher), detail: JSON.stringify(detailsOfBook),   isbn: JSON.stringify(ISBN),links: JSON.stringify(Link), csrfmiddlewaretoken: csrf, user: user}
+                        console.log(dataBook);
+                          e.preventDefault();
+                                $.post(
+                                             "http://127.0.0.1:8000/book/",
+                                             dataBook,
+                                             function(responseData,status){
+                                    console.log(responseData);
+                                    //console.log(responseData.)
+                              //if(responseData.)
+                                  if(responseData.message=="Data Saved")
+                                  {
+                                    //step_process(2,3);
+                                  }
+                                     
+                                    }
+                            );
+
+
+                
+                   });
+
+              </script>
+     </div>
+    </div>
+
+  </div>
+
+
+
+
+    <div class="block" id="block10">
+     <div class="wrap">
+      <div class="container">
+
+        <script type="text/javascript" src="js/1.js"></script>
+       
+
+          <div class="row clearfix">
+                <div class="col-lg-12 column">
+                <h3>Poster</h3>
+                  <table class="table" id="annotations">
+                    <thead>
+                      <tr>
+                        <th class="text-center col-lg-2">
+                          Year
+                        </th>
+                        <th class="text-center col-lg-2">
+                          Title
+                        </th>
+                        <th class="text-center col-lg-2">
+                          Organization
+                        </th>
+                        <th class="text-center col-lg-2">
+                          Details
+                        </th>
+                        <!-- <th class="text-center col-lg-4">
+                          ISBN N
+                        </th> -->
+                        <th class="text-center col-lg-2">
+                          Link
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                         <th class="text-center col-lg-2">
+                         <input type="text" class="form-control1 textfield" name="yearOfPoster[]" default="NULL">
+                        </th>
+                        <th class="text-center col-lg-2">
+                         <input type="text" class="form-control1 textfield" name="titleOfPoster[]" default="NULL">
+                        </th>
+                        <th class="text-center col-lg-2">
+                         <input type="text" class="form-control1 textfield" name="nameOfOrg[]" default="NULL">
+                        </th>
+                        <th class="text-center col-lg-2">
+                         <input type="text" class="form-control1 textfield" name="detailsOfPoster[]" default="NULL">
+                        </th>
+                        <!-- <th class="text-center col-lg-4">
+                          <input type="text" class="form-control1 textfield" name="ISBN[]" default="NULL">
+                        </th> -->
+                        <th class="text-center col-lg-2">
+                         <input type="text" class="form-control1 textfield" name="Link[]" default="NULL">
+                        </th>
+                      </tr>
+                    <tr>
+                         <th class="text-center col-lg-2">
+                         <input type="text" class="form-control1 textfield" name="yearOfPoster[]" default="NULL">
+                        </th>
+                        <th class="text-center col-lg-2">
+                         <input type="text" class="form-control1 textfield" name="titleOfPoster[]" default="NULL">
+                        </th>
+                        <th class="text-center col-lg-2">
+                         <input type="text" class="form-control1 textfield" name="nameOfOrg[]" default="NULL">
+                        </th>
+                        <th class="text-center col-lg-2">
+                         <input type="text" class="form-control1 textfield" name="detailsOfPoster[]" default="NULL">
+                        </th>
+                        <!-- <th class="text-center col-lg-4">
+                          <input type="text" class="form-control1 textfield" name="ISBN[]" default="NULL">
+                        </th> -->
+                        <th class="text-center col-lg-2">
+                         <input type="text" class="form-control1 textfield" name="Link[]" default="NULL">
+                        </th>
+                    </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <a class="glyphicon glyphicon-plus-sign" style="font-size:24px; color:#607D8B" id="addPoster"></a>
+                <a onclick="step_process(11, 12)" class="form-control btn btn-default" id="skipPoster">Skip</a>
+                <a onclick="" class="form-control btn btn-default" id="submitPoster">Next</a>
+              </div>
+              <script>
+
+               $("#submitPoster").click(function(e){
+                       var csrf=sessionStorage.getItem('csrf');
+                       var user=sessionStorage.getItem('username');
+                       /*$.get(
+                                "http://127.0.0.1:8000/education", 
+                                function(data, textStatus)
+                              {
+                                      //console.log(data);
+                                      csrf=data.csrf;
+                              });*/
+                      //var yearOfEducation=document.getElementById("yearOfEducation").value;
+                       var yearOfPoster =new Array();
+                      $('input[name^="yearOfPoster"]').each(function() {
+                          yearOfPoster.push($(this).val());
+                      });
+                      var titleOfPoster = new Array();
+                      $('input[name^="titleOfPoster"]').each(function() {
+                          titleOfPoster.push($(this).val());
+                      });
+
+                      var nameOfOrg = new Array();
+                      $('input[name^="nameOfOrg"]').each(function() {
+                          nameOfOrg.push($(this).val());
+                      });
+                      var detailsOfPoster = new Array();
+                      $('input[name^="detailsOfPoster"]').each(function() {
+                          detailsOfPoster.push($(this).val());
+                      });
+                     
+                      // var ISBN =new Array();
+                      // $('input[name^="ISBN"]').each(function() {
+                      //     ISBN.push($(this).val());
+                      // });
+
+                      var Link =new Array();
+                      $('input[name^="Link"]').each(function() {
+                          Link.push($(this).val());
+                      });
+
+                       //console.log(csrf);
+                       //console.log(degreeOfEducation);
+                       var dataPoster={year: JSON.stringify(yearOfPoster), title: JSON.stringify(titleOfPoster) , org: JSON.stringify(nameOfOrg), detail: JSON.stringify(detailsOfPoster),link: JSON.stringify(Link), csrfmiddlewaretoken: csrf, user: user}
+                        console.log(dataPoster);
+                          e.preventDefault();
+                                $.post(
+                                             "http://127.0.0.1:8000/poster/",
+                                             dataPoster,
+                                             function(responseData,status){
+                                    console.log(responseData);
+                                    //console.log(responseData.)
+                              //if(responseData.)
+                                  if(responseData.message=="Data Saved")
+                                  {
+                                    //step_process(2,3);
+                                  }
+                                     
+                                    }
+                            );
+
+
+                
+                   });
+
+              </script>
+     </div>
+    </div>
+
+  </div>
+
+
+
+      <div class="block" id="block11">
+     <div class="wrap">
+      <div class="container">
+
+        <script type="text/javascript" src="js/1.js"></script>
+       
+
+          <div class="row clearfix">
+                <div class="col-lg-12 column">
+                <h3>Conferences/Seminars</h3>
+                  <table class="table" id="annotations">
+                    <thead>
+                      <tr>
+                        <th class="text-center col-lg-2">
+                          Year
+                        </th>
+                        <th class="text-center col-lg-2">
+                          Title
+                        </th>
+                        <th class="text-center col-lg-2">
+                          Organization
+                        </th>
+                        <th class="text-center col-lg-2">
+                          Details
+                        </th>
+                        <!-- <th class="text-center col-lg-4">
+                          ISBN N
+                        </th> -->
+                        <th class="text-center col-lg-2">
+                          Status
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                         <th class="text-center col-lg-2">
+                         <input type="text" class="form-control1 textfield" name="yearOfConference[]" default="NULL">
+                        </th>
+                        <th class="text-center col-lg-2">
+                         <input type="text" class="form-control1 textfield" name="titleOfConference[]" default="NULL">
+                        </th>
+                        <th class="text-center col-lg-2">
+                         <input type="text" class="form-control1 textfield" name="nameOfConference[]" default="NULL">
+                        </th>
+                        <th class="text-center col-lg-2">
+                         <input type="text" class="form-control1 textfield" name="detailsOfConference[]" default="NULL">
+                        </th>
+                        <!-- <th class="text-center col-lg-4">
+                          <input type="text" class="form-control1 textfield" name="ISBN[]" default="NULL">
+                        </th> -->
+                        <th class="text-center col-lg-2">
+                         <input type="text" class="form-control1 textfield" name="statusOfConference[]" default="NULL">
+                        </th>
+                      </tr>
+                    <tr>
+                         <th class="text-center col-lg-2">
+                         <input type="text" class="form-control1 textfield" name="yearOfConference[]" default="NULL">
+                        </th>
+                        <th class="text-center col-lg-2">
+                         <input type="text" class="form-control1 textfield" name="titleOfConference[]" default="NULL">
+                        </th>
+                        <th class="text-center col-lg-2">
+                         <input type="text" class="form-control1 textfield" name="nameOfConference[]" default="NULL">
+                        </th>
+                        <th class="text-center col-lg-2">
+                         <input type="text" class="form-control1 textfield" name="detailsOfConference[]" default="NULL">
+                        </th>
+                        <!-- <th class="text-center col-lg-4">
+                          <input type="text" class="form-control1 textfield" name="ISBN[]" default="NULL">
+                        </th> -->
+                        <th class="text-center col-lg-2">
+                         <input type="text" class="form-control1 textfield" name="statusOfConference[]" default="NULL">
+                        </th>
+                    </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <a class="glyphicon glyphicon-plus-sign" style="font-size:24px; color:#607D8B" id="addPoster"></a>
+                <a onclick="step_process(10, 11)" class="form-control btn btn-default" id="skipPoster">Skip</a>
+                <a onclick="" class="form-control btn btn-default" id="submitPoster">Next</a>
+              </div>
+              <script>
+
+               $("#submitPoster").click(function(e){
+                       var csrf=sessionStorage.getItem('csrf');
+                       var user=sessionStorage.getItem('username');
+                       /*$.get(
+                                "http://127.0.0.1:8000/education", 
+                                function(data, textStatus)
+                              {
+                                      //console.log(data);
+                                      csrf=data.csrf;
+                              });*/
+                      //var yearOfEducation=document.getElementById("yearOfEducation").value;
+                       var yearOfPoster =new Array();
+                      $('input[name^="yearOfPoster"]').each(function() {
+                          yearOfPoster.push($(this).val());
+                      });
+                      var titleOfPoster = new Array();
+                      $('input[name^="titleOfPoster"]').each(function() {
+                          titleOfPoster.push($(this).val());
+                      });
+
+                      var nameOfOrg = new Array();
+                      $('input[name^="nameOfOrg"]').each(function() {
+                          nameOfOrg.push($(this).val());
+                      });
+                      var detailsOfPoster = new Array();
+                      $('input[name^="detailsOfPoster"]').each(function() {
+                          detailsOfPoster.push($(this).val());
+                      });
+                     
+                      // var ISBN =new Array();
+                      // $('input[name^="ISBN"]').each(function() {
+                      //     ISBN.push($(this).val());
+                      // });
+
+                      var Link =new Array();
+                      $('input[name^="Link"]').each(function() {
+                          Link.push($(this).val());
+                      });
+
+                       //console.log(csrf);
+                       //console.log(degreeOfEducation);
+                       var dataPoster={year: JSON.stringify(yearOfPoster), title: JSON.stringify(titleOfPoster) , org: JSON.stringify(nameOfOrg), detail: JSON.stringify(detailsOfPoster),link: JSON.stringify(Link), csrfmiddlewaretoken: csrf, user: user}
+                        console.log(dataPoster);
+                          e.preventDefault();
+                                $.post(
+                                             "http://127.0.0.1:8000/poster/",
+                                             dataPoster,
+                                             function(responseData,status){
+                                    console.log(responseData);
+                                    //console.log(responseData.)
+                              //if(responseData.)
+                                  if(responseData.message=="Data Saved")
+                                  {
+                                    //step_process(2,3);
+                                  }
+                                     
+                                    }
+                            );
+
+
+                
+                   });
+
+              </script>
+     </div>
+    </div>
+
+  </div>
+
+
+
+
+
+
+
 </div>
 <br class="clear" />
 </div>
@@ -559,20 +1598,21 @@ $.ajax({
         <script>
 
         $('#logout').on("click",function(e) {
-    var csrf="";
-         $.get(
+    //var csrf="";
+         /*$.get(
                   "http://127.0.0.1:8000/accounts/logout", 
                   function(data, textStatus)
                 {
                         console.log(data);
                         csrf=data.csrf;
-                });
+                });*/
 
 
        // var csrf=sessionStorage.getItem('csrf');
        //var csrf=document.getElementById("csrfToken").value;
         var session_id=sessionStorage.getItem('session_id');
         var username=sessionStorage.getItem('username');
+        var csrf=sessionStorage.getItem('csrf');
         console.log(csrf);
         var dataInp={csrfmiddlewaretoken: csrf, user: username};
         //console.log(dataInp);
